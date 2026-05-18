@@ -1,11 +1,766 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const stats = [
+	{ value: '15+', label: 'Yıllık Deneyim', icon: 'calendar' },
+	{ value: '50K+', label: 'Üretim Kapasitesi', icon: 'box' },
+	{ value: '99%', label: 'Müşteri Memnuniyeti', icon: 'star' },
+	{ value: '30+', label: 'Ülke İhracat', icon: 'globe' },
+];
+
+const features = [
+	{ icon: 'shield', title: 'Sertifikasyonlu Kalite', desc: 'CE, UL ve RoHS sertifikaları ile uluslararası standartlara uygun üretim.', stat: '100%' },
+	{ icon: 'zap', title: 'Yüksek Verimlilik', desc: '%96\'ya varan verimlilik oranı ile minimum enerji kaybı, maksimum performans.', stat: '96%' },
+	{ icon: 'thermometer', title: 'Akıllı Soğutma', desc: 'Düşük gürültülü fan sistemi ve termal yönetim ile uzun ömürlü performans.', stat: '45dB' },
+	{ icon: 'settings', title: 'Tam Koruma', desc: 'OVP, OCP, OTP, SCP korumaları ile güvenli çalışma.', stat: '6+' },
+];
+
+const applications = [
+	{ name: 'Diode Lazer', icon: 'laser' },
+	{ name: 'Alexandrite', icon: 'alex' },
+	{ name: 'Nd:YAG', icon: 'yag' },
+	{ name: 'IPL Sistemleri', icon: 'ipl' },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Ana Sayfa">
+	<Navbar />
+
+	<main>
+		<section class="hero">
+			<div class="hero-bg">
+				<div class="hero-gradient"></div>
+				<div class="hero-grid"></div>
+			</div>
+			<div class="container hero-content">
+				<div class="hero-text">
+					<span class="section-tag">Lazer Epilasyon Power Supply Uzmanı</span>
+					<h1>
+						<span class="gradient-text">Güvenilir Güç.</span><br />
+						Profesyonel Sonuçlar.
+					</h1>
+					<p class="hero-desc">
+						EC POWER olarak, lazer epilasyon cihazları için yüksek performanslı güç kaynakları üretiyoruz. 
+						Endüstri standartlarında kalite ve güvenilirlik ile işletmenizin gücünü artırıyoruz.
+					</p>
+					<div class="hero-actions">
+						<a href="/products" class="btn btn-primary btn-lg">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+							</svg>
+							Ürünleri Keşfet
+						</a>
+						<a href="/contact" class="btn btn-outline btn-lg">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+							</svg>
+							İletişime Geç
+						</a>
+					</div>
+				</div>
+
+				<div class="hero-visual">
+					<div class="hero-psu">
+						<div class="psu-container">
+							<div class="psu-main">
+								<div class="psu-label-main">EC-1200</div>
+								<div class="psu-leds">
+									<div class="led-green"></div>
+									<div class="led-blue"></div>
+								</div>
+								<div class="psu-vents">
+									<div class="vent-line"></div>
+									<div class="vent-line"></div>
+									<div class="vent-line"></div>
+									<div class="vent-line"></div>
+								</div>
+							</div>
+							<div class="psu-pins">
+								<div class="pin-group">
+									<div class="pin"></div>
+									<div class="pin"></div>
+									<div class="pin"></div>
+								</div>
+							</div>
+						</div>
+						<div class="power-badge">
+							<span class="power-value">1200W</span>
+							<span class="power-label">MAX OUTPUT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="scroll-indicator">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M12 5v14M19 12l-7 7-7-7"/>
+				</svg>
+			</div>
+		</section>
+
+		<section class="stats">
+			<div class="container">
+				<div class="stats-grid">
+					{stats.map((stat, i) => (
+						<div class="stat-item" style={`--delay: ${i * 0.1}s`}>
+							<div class="stat-icon">
+								{stat.icon === 'calendar' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+										<line x1="16" y1="2" x2="16" y2="6"/>
+										<line x1="8" y1="2" x2="8" y2="6"/>
+										<line x1="3" y1="10" x2="21" y2="10"/>
+									</svg>
+								)}
+								{stat.icon === 'box' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+									</svg>
+								)}
+								{stat.icon === 'star' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+									</svg>
+								)}
+								{stat.icon === 'globe' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<circle cx="12" cy="12" r="10"/>
+										<line x1="2" y1="12" x2="22" y2="12"/>
+										<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+									</svg>
+								)}
+							</div>
+							<div class="stat-content">
+								<span class="stat-value">{stat.value}</span>
+								<span class="stat-label">{stat.label}</span>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="features">
+			<div class="container">
+				<div class="features-header">
+					<span class="section-tag">Neden EC POWER?</span>
+					<h2 class="section-title">Kalite ve Güvenilirlik</h2>
+					<p class="section-subtitle">
+						15 yılı aşkın deneyimimizle, lazer epilasyon sektörüne özel güç çözümleri sunuyoruz. 
+						Her ürünümüz, en yüksek kalite standartlarına göre üretilmektedir.
+					</p>
+				</div>
+
+				<div class="features-grid">
+					{features.map((feature, i) => (
+						<div class="feature-card" style={`--delay: ${i * 0.1}s`}>
+							<div class="feature-stat">{feature.stat}</div>
+							<div class="feature-icon">
+								{feature.icon === 'shield' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+									</svg>
+								)}
+								{feature.icon === 'zap' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+									</svg>
+								)}
+								{feature.icon === 'thermometer' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+									</svg>
+								)}
+								{feature.icon === 'settings' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<circle cx="12" cy="12" r="3"/>
+										<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+									</svg>
+								)}
+							</div>
+							<h3 class="feature-title">{feature.title}</h3>
+							<p class="feature-desc">{feature.desc}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="applications">
+			<div class="container">
+				<div class="app-content">
+					<div class="app-text">
+						<span class="section-tag">Uygulama Alanları</span>
+						<h2 class="section-title">Her Lazer Sistemi İçin<br /><span class="gradient-text">Uygun Çözümler</span></h2>
+						<p class="section-subtitle">
+							EC POWER ürünleri, tüm popüler lazer epilasyon teknolojileri ile tam uyumlu çalışır. 
+							Profesyonel performans için optimize edilmiş güç kaynakları.
+						</p>
+						<a href="/products" class="btn btn-primary">
+							Ürünleri İncele
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+								<line x1="5" y1="12" x2="19" y2="12"/>
+								<polyline points="12 5 19 12 12 19"/>
+							</svg>
+						</a>
+					</div>
+					<div class="app-grid">
+						{applications.map((app, i) => (
+							<div class="app-card" style={`--delay: ${i * 0.1}s`}>
+								<div class="app-icon">
+									{app.icon === 'laser' && (
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<circle cx="12" cy="12" r="3"/>
+											<path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+										</svg>
+									)}
+									{app.icon === 'alex' && (
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<path d="M12 3v18M5.5 8.5l13 7M5.5 15.5l13-7"/>
+										</svg>
+									)}
+									{app.icon === 'yag' && (
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+										</svg>
+									)}
+									{app.icon === 'ipl' && (
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<circle cx="12" cy="12" r="10"/>
+											<path d="M12 6v6l4 2"/>
+										</svg>
+									)}
+								</div>
+								<span class="app-name">{app.name}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="cta-bg">
+				<div class="cta-gradient"></div>
+			</div>
+			<div class="container cta-content">
+				<h2>Projeniz İçin Doğru Güç Çözümünü Buldunuz mu?</h2>
+				<p>Size en uygun power supply çözümünü bulmak için uzman ekibimizle iletişime geçin.</p>
+				<div class="cta-actions">
+					<a href="/contact" class="btn btn-primary btn-lg">Ücretsiz Teklif Alın</a>
+					<a href="/products" class="btn btn-outline btn-lg">Ürün Kataloğu</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
 </Layout>
+
+<style>
+.hero {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 120px 0 100px;
+	background: var(--bg-white);
+	overflow: hidden;
+}
+
+.hero-bg {
+	position: absolute;
+	inset: 0;
+}
+
+.hero-gradient {
+	position: absolute;
+	inset: 0;
+	background: 
+		radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.06) 0%, transparent 50%),
+		radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+}
+
+.hero-grid {
+	position: absolute;
+	inset: 0;
+	background-image: 
+		linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+	background-size: 80px 80px;
+}
+
+.hero-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 80px;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+}
+
+.hero-text {
+	max-width: 600px;
+}
+
+.hero-text h1 {
+	font-size: clamp(40px, 6vw, 56px);
+	line-height: 1.15;
+	margin-bottom: 24px;
+	color: var(--text-primary);
+	letter-spacing: -0.03em;
+}
+
+.hero-desc {
+	font-size: 18px;
+	color: var(--text-secondary);
+	margin-bottom: 40px;
+	line-height: 1.7;
+}
+
+.hero-actions {
+	display: flex;
+	gap: 16px;
+}
+
+.hero-visual {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.hero-psu {
+	position: relative;
+	width: 350px;
+	height: 250px;
+}
+
+.psu-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.psu-main {
+	width: 280px;
+	height: 100px;
+	background: linear-gradient(180deg, #374151 0%, #1F2937 100%);
+	border-radius: 10px;
+	padding: 15px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 
+		0 30px 80px rgba(0, 0, 0, 0.2),
+		0 0 60px rgba(37, 99, 235, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.psu-label-main {
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--accent);
+}
+
+.psu-leds {
+	display: flex;
+	gap: 10px;
+}
+
+.led-green {
+	width: 10px;
+	height: 10px;
+	background: #10B981;
+	border-radius: 50%;
+	box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+}
+
+.led-blue {
+	width: 10px;
+	height: 10px;
+	background: var(--accent);
+	border-radius: 50%;
+	box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+	animation: ledPulse 1.5s infinite;
+}
+
+@keyframes ledPulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.5; }
+}
+
+.psu-vents {
+	display: flex;
+	gap: 4px;
+}
+
+.vent-line {
+	width: 6px;
+	height: 50px;
+	background: #111;
+	border-radius: 2px;
+}
+
+.psu-pins {
+	position: absolute;
+	bottom: -30px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 20px;
+}
+
+.pin-group {
+	display: flex;
+	gap: 4px;
+}
+
+.pin {
+	width: 16px;
+	height: 30px;
+	background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
+	border-radius: 2px;
+}
+
+.power-badge {
+	position: absolute;
+	bottom: -70px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--gradient-primary);
+	padding: 12px 24px;
+	border-radius: 12px;
+	text-align: center;
+	box-shadow: var(--shadow-blue);
+}
+
+.power-value {
+	display: block;
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 24px;
+	font-weight: 700;
+	color: white;
+}
+
+.power-label {
+	font-size: 10px;
+	letter-spacing: 2px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.scroll-indicator {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: bounce 2s infinite;
+}
+
+.scroll-indicator svg {
+	width: 30px;
+	height: 30px;
+	color: var(--primary);
+}
+
+@keyframes bounce {
+	0%, 100% { transform: translateX(-50%) translateY(0); }
+	50% { transform: translateX(-50%) translateY(10px); }
+}
+
+.stats {
+	padding: 80px 0;
+	background: var(--bg-light);
+}
+
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 40px;
+}
+
+.stat-item {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 30px;
+	background: white;
+	border: 1px solid var(--border-light);
+	border-radius: 20px;
+	transition: all 0.4s;
+	box-shadow: var(--shadow-sm);
+}
+
+.stat-item:hover {
+	transform: translateY(-5px);
+	border-color: rgba(37, 99, 235, 0.3);
+	box-shadow: var(--shadow-lg);
+}
+
+.stat-icon {
+	width: 60px;
+	height: 60px;
+	background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.stat-icon svg {
+	width: 28px;
+	height: 28px;
+	color: var(--primary);
+}
+
+.stat-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.stat-value {
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 36px;
+	font-weight: 700;
+	color: var(--primary);
+	line-height: 1;
+	margin-bottom: 4px;
+}
+
+.stat-label {
+	font-size: 14px;
+	color: var(--text-secondary);
+}
+
+.features {
+	padding: 120px 0;
+	background: white;
+}
+
+.features-header {
+	text-align: center;
+	max-width: 700px;
+	margin: 0 auto 80px;
+}
+
+.features-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+}
+
+.feature-card {
+	position: relative;
+	padding: 40px 30px;
+	background: var(--bg-light);
+	border: 1px solid var(--border-lighter);
+	border-radius: 24px;
+	transition: all 0.4s;
+}
+
+.feature-card:hover {
+	transform: translateY(-10px);
+	border-color: rgba(37, 99, 235, 0.3);
+	box-shadow: var(--shadow-xl);
+	background: white;
+}
+
+.feature-stat {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 32px;
+	font-weight: 700;
+	color: var(--primary);
+	opacity: 0.12;
+}
+
+.feature-icon {
+	width: 70px;
+	height: 70px;
+	background: var(--gradient-primary);
+	border-radius: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 24px;
+	box-shadow: var(--shadow-blue);
+}
+
+.feature-icon svg {
+	width: 32px;
+	height: 32px;
+	color: white;
+}
+
+.feature-title {
+	font-size: 22px;
+	font-weight: 700;
+	color: var(--text-primary);
+	margin-bottom: 12px;
+}
+
+.feature-desc {
+	font-size: 15px;
+	color: var(--text-secondary);
+	line-height: 1.6;
+}
+
+.applications {
+	padding: 120px 0;
+	background: var(--bg-light);
+}
+
+.app-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 80px;
+	align-items: center;
+}
+
+.app-text .section-subtitle {
+	margin-bottom: 40px;
+}
+
+.app-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 24px;
+}
+
+.app-card {
+	padding: 40px;
+	background: white;
+	border: 1px solid var(--border-light);
+	border-radius: 24px;
+	text-align: center;
+	transition: all 0.4s;
+	box-shadow: var(--shadow-sm);
+}
+
+.app-card:hover {
+	transform: translateY(-5px);
+	border-color: rgba(37, 99, 235, 0.3);
+	box-shadow: var(--shadow-lg);
+}
+
+.app-icon {
+	width: 80px;
+	height: 80px;
+	background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 20px;
+}
+
+.app-icon svg {
+	width: 36px;
+	height: 36px;
+	color: var(--primary);
+}
+
+.app-name {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--text-primary);
+}
+
+.cta {
+	position: relative;
+	padding: 120px 0;
+	overflow: hidden;
+}
+
+.cta-bg {
+	position: absolute;
+	inset: 0;
+}
+
+.cta-gradient {
+	position: absolute;
+	inset: 0;
+	background: var(--gradient-primary);
+}
+
+.cta-content {
+	position: relative;
+	text-align: center;
+	z-index: 1;
+}
+
+.cta-content h2 {
+	font-size: clamp(32px, 4vw, 48px);
+	color: white;
+	margin-bottom: 20px;
+}
+
+.cta-content p {
+	font-size: 18px;
+	color: rgba(255, 255, 255, 0.9);
+	margin-bottom: 40px;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cta-actions {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+@media (max-width: 1024px) {
+	.hero-content {
+		grid-template-columns: 1fr;
+		gap: 50px;
+		text-align: left;
+	}
+
+	.hero-visual {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.stats-grid,
+	.features-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.app-content {
+		grid-template-columns: 1fr;
+		text-align: left;
+	}
+
+	.app-text .section-subtitle {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.hero-actions {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.stats-grid,
+	.features-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.app-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.cta-actions {
+		flex-direction: column;
+	}
+}
+</style>

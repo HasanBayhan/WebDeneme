@@ -1,0 +1,606 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const products = [
+	{
+		name: 'EC-500 Serisi',
+		model: 'EC-500',
+		power: '500W',
+		voltage: '24V / 48V',
+		current: '20A / 10A',
+		efficiency: '94%',
+		features: ['OVP Koruması', 'OCP Koruması', 'SCP Koruması', 'Termal Koruma', 'Fan Kontrolü', 'LED Göstergeler'],
+		certifications: ['CE', 'UL', 'RoHS'],
+		badge: 'Ekonomik',
+	},
+	{
+		name: 'EC-800 Serisi',
+		model: 'EC-800',
+		power: '800W',
+		voltage: '48V / 24V',
+		current: '16A / 33A',
+		efficiency: '95%',
+		features: ['OVP Koruması', 'OCP Koruması', 'SCP Koruması', 'OTP Koruması', 'Uzaktan Kontrol', 'PMBus Destek'],
+		certifications: ['CE', 'UL', 'RoHS', 'ISO'],
+		badge: 'Popüler',
+	},
+	{
+		name: 'EC-1200 Serisi',
+		model: 'EC-1200',
+		power: '1200W',
+		voltage: '48V',
+		current: '25A',
+		efficiency: '96%',
+		features: ['OVP Koruması', 'OCP Koruması', 'OTP Koruması', 'SCP Koruması', 'Paralel Bağlantı', 'Dijital Kontrol'],
+		certifications: ['CE', 'UL', 'RoHS', 'ISO', 'TÜV'],
+		badge: 'Premium',
+	},
+	{
+		name: 'EC-2000 Serisi',
+		model: 'EC-2000',
+		power: '2000W',
+		voltage: '48V / 60V',
+		current: '42A / 33A',
+		efficiency: '96%',
+		features: ['OVP', 'OCP', 'OTP', 'SCP', 'N+1 Yedekleme', 'CAN Bus', 'Ethernet', 'Modüler Tasarım'],
+		certifications: ['CE', 'UL', 'RoHS', 'ISO', 'TÜV', 'IEC'],
+		badge: 'Endüstriyel',
+	},
+];
+
+const comparisonSpecs = [
+	{ spec: 'Güç', values: ['500W', '800W', '1200W', '2000W'] },
+	{ spec: 'Verimlilik', values: ['94%', '95%', '96%', '96%'] },
+	{ spec: 'Voltaj Seçenekleri', values: ['24V/48V', '24V/48V', '48V', '48V/60V'] },
+	{ spec: 'Çalışma Sıcaklığı', values: ['-20°C ~ 70°C', '-20°C ~ 70°C', '-20°C ~ 70°C', '-30°C ~ 75°C'] },
+	{ spec: 'Koruma', values: ['OVP/OCP/SCP', 'OVP/OCP/OTP/SCP', 'OVP/OCP/OTP/SCP', 'Tam Koruma'] },
+	{ spec: 'Fan Gürültüsü', values: ['<40dB', '<45dB', '<45dB', '<50dB'] },
+	{ spec: 'Garanti', values: ['2 Yıl', '2 Yıl', '3 Yıl', '3 Yıl'] },
+	{ spec: 'Sertifikasyon', values: ['CE/UL/RoHS', 'CE/UL/RoHS/ISO', 'CE/UL/RoHS/ISO/TÜV', 'CE/UL/RoHS/ISO/TÜV/IEC'] },
+];
+---
+
+<Layout title="Ürünler" description="EC POWER lazer epilasyon power supply ürün gamı">
+	<Navbar />
+
+	<main>
+		<section class="page-hero">
+			<div class="container">
+				<span class="section-tag">Ürün Gamımız</span>
+				<h1>
+					Profesyonel Power Supply<br />
+					<span class="gradient-text">Çözümleri</span>
+				</h1>
+				<p>
+					Lazer epilasyon cihazları için özel olarak tasarlanmış yüksek performanslı güç kaynakları. 
+					Her uygulama için doğru çözüm.
+				</p>
+				<div class="hero-stats">
+					<div class="hero-stat">
+						<span class="value">4</span>
+						<span class="label">Ürün Serisi</span>
+					</div>
+					<div class="hero-stat">
+						<span class="value">2000W</span>
+						<span class="label">Max Güç</span>
+					</div>
+					<div class="hero-stat">
+						<span class="value">96%</span>
+						<span class="label">Max Verimlilik</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="products-section">
+			<div class="container">
+				<div class="products-grid">
+					{products.map((product, index) => (
+						<ProductCard 
+							name={product.name}
+							model={product.model}
+							power={product.power}
+							voltage={product.voltage}
+							current={product.current}
+							efficiency={product.efficiency}
+							features={product.features}
+							certifications={product.certifications}
+							badge={product.badge}
+							index={index}
+						/>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="comparison-section">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-tag">Karşılaştırma</span>
+					<h2 class="section-title">Teknik Özellikler Karşılaştırması</h2>
+					<p class="section-subtitle">
+						Tüm EC POWER ürünlerinin detaylı teknik özelliklerini inceleyin ve uygulamanıza en uygun çözümü seçin.
+					</p>
+				</div>
+
+				<div class="comparison-table">
+					<div class="table-header">
+						<div class="header-cell spec-header">Özellik</div>
+						<div class="header-cell">EC-500</div>
+						<div class="header-cell">EC-800</div>
+						<div class="header-cell">EC-1200</div>
+						<div class="header-cell">EC-2000</div>
+					</div>
+					{comparisonSpecs.map((row, i) => (
+						<div class:list={['table-row', { alt: i % 2 === 1 }]}>
+							<div class="cell spec-cell">{row.spec}</div>
+							{row.values.map(value => (
+								<div class="cell">{value}</div>
+							))}
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="custom-section">
+			<div class="container">
+				<div class="custom-content">
+					<div class="custom-visual">
+						<div class="custom-icon">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+							</svg>
+						</div>
+					</div>
+					<div class="custom-text">
+						<span class="section-tag">Özel Çözümler</span>
+						<h2 class="section-title">İhtiyacınıza Özel Tasarım</h2>
+						<p class="section-subtitle">
+							Standart ürünlerimiz ihtiyaçlarınızı karşılamıyorsa, özel güç kaynağı çözümleri için ekibimizle iletişime geçin. 
+							Belirli voltaj, akım veya form faktörü gereksinimleriniz için çözüm sunuyoruz.
+						</p>
+						<ul class="custom-features">
+							<li>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="20 6 9 17 4 12"/>
+								</svg>
+								Özel voltaj ve akım değerleri
+							</li>
+							<li>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="20 6 9 17 4 12"/>
+								</svg>
+								Rack mount veya panel mount seçenekleri
+							</li>
+							<li>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="20 6 9 17 4 12"/>
+								</svg>
+								Özel iletişim arayüzleri (RS485, CAN, Ethernet)
+							</li>
+							<li>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polyline points="20 6 9 17 4 12"/>
+								</svg>
+								Yüksek güç yoğunluğu gereksinimleri
+							</li>
+						</ul>
+						<a href="/contact" class="btn btn-primary">
+							Özel Teklif Alın
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+								<line x1="5" y1="12" x2="19" y2="12"/>
+								<polyline points="12 5 19 12 12 19"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="downloads-section">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-tag">Kaynaklar</span>
+					<h2 class="section-title">Teknik Dökümanlar</h2>
+				</div>
+				<div class="downloads-grid">
+					<div class="download-card">
+						<div class="download-icon">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+								<polyline points="14 2 14 8 20 8"/>
+								<line x1="16" y1="13" x2="8" y2="13"/>
+								<line x1="16" y1="17" x2="8" y2="17"/>
+							</svg>
+						</div>
+						<div class="download-info">
+							<h4>Ürün Kataloğu</h4>
+							<p>EC POWER tüm ürün gamı ve teknik özellikler</p>
+							<span class="download-meta">PDF • 4.2 MB</span>
+						</div>
+						<button class="download-btn">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+								<polyline points="7 10 12 15 17 10"/>
+								<line x1="12" y1="15" x2="12" y2="3"/>
+							</svg>
+						</button>
+					</div>
+					<div class="download-card">
+						<div class="download-icon">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+								<line x1="8" y1="21" x2="16" y2="21"/>
+								<line x1="12" y1="17" x2="12" y2="21"/>
+							</svg>
+						</div>
+						<div class="download-info">
+							<h4>Teknik Kılavuzlar</h4>
+							<p>Detaylı kurulum ve kullanım kılavuzları</p>
+							<span class="download-meta">PDF • 12.8 MB</span>
+						</div>
+						<button class="download-btn">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+								<polyline points="7 10 12 15 17 10"/>
+								<line x1="12" y1="15" x2="12" y2="3"/>
+							</svg>
+						</button>
+					</div>
+					<div class="download-card">
+						<div class="download-icon">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+								<line x1="3" y1="9" x2="21" y2="9"/>
+								<line x1="9" y1="21" x2="9" y2="9"/>
+							</svg>
+						</div>
+						<div class="download-info">
+							<h4>3D CAD Modelleri</h4>
+							<p>STEP ve IGS formatlarında teknik çizimler</p>
+							<span class="download-meta">ZIP • 8.5 MB</span>
+						</div>
+						<button class="download-btn">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+								<polyline points="7 10 12 15 17 10"/>
+								<line x1="12" y1="15" x2="12" y2="3"/>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+.page-hero {
+	/* global Layout'taki .page-hero ile uyumlu */
+	background: var(--bg-light);
+}
+
+.page-hero h1 {
+	font-size: clamp(40px, 6vw, 56px);
+	margin: 16px 0 24px;
+	color: var(--text-primary);
+	letter-spacing: -0.03em;
+}
+
+.page-hero p {
+	font-size: 18px;
+	color: var(--text-secondary);
+	max-width: 600px;
+	line-height: 1.7;
+	margin-bottom: 40px;
+}
+
+.hero-stats {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	max-width: 760px;
+}
+
+.hero-stat {
+	display: flex;
+	flex-direction: column;
+	background: rgba(255, 255, 255, 0.78);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border: 1px solid rgba(226, 232, 240, 0.8);
+	border-radius: 18px;
+	padding: 18px 18px;
+	box-shadow: var(--shadow-sm);
+}
+
+.hero-stat .value {
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	color: var(--primary);
+	line-height: 1;
+	margin-bottom: 6px;
+}
+
+.hero-stat .label {
+	font-size: 14px;
+	color: var(--text-secondary);
+}
+
+.products-section {
+	padding: 80px 0 120px;
+	background: white;
+}
+
+.products-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 40px;
+}
+
+.comparison-section {
+	padding: 120px 0;
+	background: var(--bg-light);
+}
+
+.section-header {
+	text-align: center;
+	max-width: 700px;
+	margin: 0 auto 60px;
+}
+
+.comparison-table {
+	background: white;
+	border: 1px solid var(--border-light);
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: var(--shadow-sm);
+}
+
+.table-header {
+	display: grid;
+	grid-template-columns: 200px repeat(4, 1fr);
+	background: var(--gradient-primary);
+}
+
+.header-cell {
+	padding: 20px;
+	font-weight: 600;
+	font-size: 15px;
+	text-align: center;
+	color: white;
+}
+
+.header-cell:first-child {
+	text-align: left;
+}
+
+.table-row {
+	display: grid;
+	grid-template-columns: 200px repeat(4, 1fr);
+	border-bottom: 1px solid var(--border-lighter);
+	transition: background 0.3s;
+}
+
+.table-row:last-child {
+	border-bottom: none;
+}
+
+.table-row:hover {
+	background: rgba(37, 99, 235, 0.03);
+}
+
+.table-row.alt {
+	background: var(--bg-light);
+}
+
+.cell {
+	padding: 18px 20px;
+	font-size: 14px;
+	text-align: center;
+	color: var(--text-secondary);
+}
+
+.spec-cell {
+	font-weight: 600;
+	color: var(--text-primary);
+	text-align: left;
+}
+
+.custom-section {
+	padding: 120px 0;
+	background: white;
+}
+
+.custom-content {
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	gap: 80px;
+	align-items: center;
+}
+
+.custom-visual {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 400px;
+}
+
+.custom-icon {
+	width: 150px;
+	height: 150px;
+	background: var(--gradient-primary);
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: var(--shadow-blue);
+}
+
+.custom-icon svg {
+	width: 70px;
+	height: 70px;
+	color: white;
+}
+
+.custom-features {
+	list-style: none;
+	margin: 30px 0 40px;
+}
+
+.custom-features li {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 16px;
+	font-size: 16px;
+	color: var(--text-secondary);
+}
+
+.custom-features svg {
+	width: 20px;
+	height: 20px;
+	color: var(--primary);
+	flex-shrink: 0;
+}
+
+.downloads-section {
+	padding: 120px 0;
+	background: var(--bg-light);
+}
+
+.downloads-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+}
+
+.download-card {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 30px;
+	background: white;
+	border: 1px solid var(--border-light);
+	border-radius: 20px;
+	transition: all 0.3s;
+	box-shadow: var(--shadow-sm);
+}
+
+.download-card:hover {
+	border-color: rgba(37, 99, 235, 0.3);
+	box-shadow: var(--shadow-lg);
+}
+
+.download-icon {
+	width: 60px;
+	height: 60px;
+	background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+	border-radius: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.download-icon svg {
+	width: 28px;
+	height: 28px;
+	color: var(--primary);
+}
+
+.download-info {
+	flex: 1;
+}
+
+.download-info h4 {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--text-primary);
+	margin-bottom: 6px;
+}
+
+.download-info p {
+	font-size: 14px;
+	color: var(--text-secondary);
+	margin-bottom: 8px;
+}
+
+.download-meta {
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+.download-btn {
+	width: 50px;
+	height: 50px;
+	background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+	border: 1px solid var(--border-light);
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.download-btn:hover {
+	background: var(--primary);
+	border-color: var(--primary);
+}
+
+.download-btn svg {
+	width: 24px;
+	height: 24px;
+	color: var(--primary);
+	transition: color 0.3s;
+}
+
+.download-btn:hover svg {
+	color: white;
+}
+
+@media (max-width: 1024px) {
+	.products-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.custom-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	.custom-visual {
+		display: none;
+	}
+
+	.downloads-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 768px) {
+	.table-header,
+	.table-row {
+		grid-template-columns: 1fr;
+	}
+
+	.header-cell:not(:first-child),
+	.cell:not(:first-child) {
+		display: none;
+	}
+
+	.hero-stats {
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+}
+</style>

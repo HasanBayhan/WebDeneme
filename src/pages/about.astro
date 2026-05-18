@@ -1,0 +1,510 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const timeline = [
+	{ year: '2009', title: 'Kuruluş', desc: 'İstanbul\'da EC POWER olarak faaliyete başladık.' },
+	{ year: '2012', title: 'İlk İhracat', desc: 'Avrupa pazarına ilk power supply ihracatımızı gerçekleştirdik.' },
+	{ year: '2015', title: 'Genişleme', desc: 'Yeni üretim tesisi ve Ar-Ge merkezi kurduk.' },
+	{ year: '2018', title: 'Sertifikasyon', desc: 'ISO 9001 ve TÜV sertifikalarını aldık.' },
+	{ year: '2021', title: 'Yeni Seri', desc: 'EC-2000 serisi endüstriyel güç kaynaklarını piyasaya sürdük.' },
+	{ year: '2024', title: 'Global', desc: '30+ ülkede distribütör ağı kurduk.' },
+];
+
+const values = [
+	{ icon: 'quality', title: 'Kalite', desc: 'Her ürünü titiz testlerden geçirerek en yüksek standartlara ulaştırıyoruz.' },
+	{ icon: 'innovation', title: 'İnovasyon', desc: 'Sürekli Ar-Ge yatırımı ile teknolojiyi lider konumda tutuyoruz.' },
+	{ icon: 'reliability', title: 'Güvenilirlik', desc: 'Müşterilerimizin iş sürekliliği için sağlam ve dayanıklı ürünler sunuyoruz.' },
+	{ icon: 'support', title: 'Destek', desc: '7/24 teknik destek ile müşterilerimizin yanındayız.' },
+];
+---
+
+<Layout title="Hakkımızda" description="EC POWER hakkında - 15 yılı aşkın deneyim">
+	<Navbar />
+
+	<main>
+		<section class="page-hero">
+			<div class="container">
+				<span class="section-tag">Hakkımızda</span>
+				<h1>
+					Güç Üretiminde<br />
+					<span class="gradient-text">15 Yıllık Deneyim</span>
+				</h1>
+				<p>
+					EC POWER olarak, 2009 yılından bu yana lazer epilasyon cihazları için yüksek performanslı güç kaynakları üretiyoruz. 
+					Kalite, güvenilirlik ve müşteri memnuniyeti odaklı yaklaşımımızla sektörün lider üreticisiyiz.
+				</p>
+				<div class="about-highlights">
+					<div class="hl-item">
+						<span class="hl-value">2009</span>
+						<span class="hl-label">Kuruluş</span>
+					</div>
+					<div class="hl-item">
+						<span class="hl-value">30+</span>
+						<span class="hl-label">Ülke</span>
+					</div>
+					<div class="hl-item">
+						<span class="hl-value">ISO / TÜV</span>
+						<span class="hl-label">Sertifikasyon</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="mission-section">
+			<div class="container">
+				<div class="mission-content">
+					<div class="mission-text">
+						<span class="section-tag">Misyonumuz</span>
+						<h2 class="section-title">Lazer Epilasyon Sektörüne Güç Veriyoruz</h2>
+						<p>
+							Misyonumuz, lazer epilasyon cihazı üreticilerine güvenilir, verimli ve uygun maliyetli güç çözümleri sunmaktır. 
+							Her ürünümüz, müşterilerimizin başarısı için titizlikle tasarlanır ve üretilir.
+						</p>
+						<p>
+							Ar-Ge ekibimiz, sektörün gelişen gereksinimlerine uygun yenilikçi çözümler geliştirmek için sürekli çalışmaktadır. 
+							Uluslararası standartlara uygun üretim süreçlerimiz ve kalite kontrol sistemlerimiz, ürünlerimizin 
+							güvenilirliğini ve performansını garanti altına almaktadır.
+						</p>
+					</div>
+					<div class="mission-visual">
+						<div class="vision-card">
+							<div class="vision-icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<circle cx="12" cy="12" r="10"/>
+									<path d="M12 16v-4M12 8h.01"/>
+								</svg>
+							</div>
+							<h3>Vizyon</h3>
+							<p>2028 yılına kadar lazer epilasyon güç kaynakları pazarında global lider olmak.</p>
+						</div>
+						<div class="vision-card">
+							<div class="vision-icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+								</svg>
+							</div>
+							<h3>Değerler</h3>
+							<p>Dürüstlük, şeffaflık ve müşteri odaklılık ilkelerimizin temelini oluşturur.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="timeline-section">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-tag">Tarihçemiz</span>
+					<h2 class="section-title">Yolculuğumuz</h2>
+				</div>
+				<div class="timeline">
+					{timeline.map((item, i) => (
+						<div class="timeline-item" style={`--delay: ${i * 0.1}s`}>
+							<div class="timeline-year">{item.year}</div>
+							<div class="timeline-content">
+								<h3>{item.title}</h3>
+								<p>{item.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="values-section">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-tag">Değerlerimiz</span>
+					<h2 class="section-title">Bizi Biz Yapan Değerler</h2>
+				</div>
+				<div class="values-grid">
+					{values.map((value, i) => (
+						<div class="value-card" style={`--delay: ${i * 0.1}s`}>
+							<div class="value-icon">
+								{value.icon === 'quality' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+										<polyline points="22 4 12 14.01 9 11.01"/>
+									</svg>
+								)}
+								{value.icon === 'innovation' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+									</svg>
+								)}
+								{value.icon === 'reliability' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+									</svg>
+								)}
+								{value.icon === 'support' && (
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+									</svg>
+								)}
+							</div>
+							<h3>{value.title}</h3>
+							<p>{value.desc}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="cta-bg">
+				<div class="cta-gradient"></div>
+			</div>
+			<div class="container cta-content">
+				<h2>EC POWER Ailesine Katılın</h2>
+				<p>Kalitemiz ve güvenilirliğimizle tanışmak için bizimle iletişime geçin.</p>
+				<div class="cta-actions">
+					<a href="/contact" class="btn btn-primary btn-lg">İletişime Geçin</a>
+					<a href="/products" class="btn btn-outline btn-lg">Ürünleri İnceleyin</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+.page-hero {
+	padding: 160px 0 100px;
+	background: var(--bg-light);
+}
+
+.page-hero h1 {
+	font-size: clamp(40px, 6vw, 56px);
+	margin: 16px 0 24px;
+	color: var(--text-primary);
+	letter-spacing: -0.03em;
+}
+
+.page-hero p {
+	font-size: 18px;
+	color: var(--text-secondary);
+	max-width: 700px;
+	line-height: 1.7;
+}
+
+.about-highlights {
+	margin-top: 34px;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	max-width: 760px;
+}
+
+.hl-item {
+	display: flex;
+	flex-direction: column;
+	background: rgba(255, 255, 255, 0.78);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border: 1px solid rgba(226, 232, 240, 0.8);
+	border-radius: 18px;
+	padding: 18px 18px;
+	box-shadow: var(--shadow-sm);
+}
+
+.hl-value {
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 22px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color: var(--text-primary);
+	margin-bottom: 6px;
+}
+
+.hl-label {
+	font-size: 13px;
+	color: var(--text-secondary);
+}
+
+.mission-section {
+	padding: 120px 0;
+	background: white;
+}
+
+.mission-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 80px;
+	align-items: center;
+}
+
+.mission-text p {
+	color: var(--text-secondary);
+	font-size: 16px;
+	line-height: 1.8;
+	margin-bottom: 20px;
+}
+
+.mission-visual {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.vision-card {
+	padding: 40px;
+	background: var(--bg-light);
+	border: 1px solid var(--border-light);
+	border-radius: 24px;
+}
+
+.vision-icon {
+	width: 60px;
+	height: 60px;
+	background: var(--gradient-primary);
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+	box-shadow: var(--shadow-blue);
+}
+
+.vision-icon svg {
+	width: 28px;
+	height: 28px;
+	color: white;
+}
+
+.vision-card h3 {
+	font-size: 22px;
+	color: var(--text-primary);
+	margin-bottom: 10px;
+}
+
+.vision-card p {
+	color: var(--text-secondary);
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.timeline-section {
+	padding: 120px 0;
+	background: var(--bg-light);
+}
+
+.section-header {
+	text-align: center;
+	max-width: 700px;
+	margin: 0 auto 80px;
+}
+
+.timeline {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	position: relative;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.timeline::before {
+	content: '';
+	position: absolute;
+	left: 50px;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background: var(--gradient-primary);
+}
+
+.timeline-item {
+	display: flex;
+	gap: 50px;
+	padding: 30px 0;
+	position: relative;
+}
+
+.timeline-item::before {
+	content: '';
+	position: absolute;
+	left: 42px;
+	top: 40px;
+	width: 18px;
+	height: 18px;
+	background: var(--primary);
+	border-radius: 50%;
+	border: 4px solid var(--bg-light);
+	z-index: 1;
+}
+
+.timeline-year {
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 24px;
+	font-weight: 700;
+	color: var(--primary);
+	width: 50px;
+	flex-shrink: 0;
+	padding-top: 5px;
+}
+
+.timeline-content {
+	background: white;
+	border: 1px solid var(--border-light);
+	border-radius: 16px;
+	padding: 30px;
+	flex: 1;
+	box-shadow: var(--shadow-sm);
+}
+
+.timeline-content h3 {
+	font-size: 20px;
+	color: var(--text-primary);
+	margin-bottom: 8px;
+}
+
+.timeline-content p {
+	color: var(--text-secondary);
+	font-size: 15px;
+}
+
+.values-section {
+	padding: 120px 0;
+	background: white;
+}
+
+.values-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+}
+
+.value-card {
+	padding: 40px 30px;
+	background: var(--bg-light);
+	border: 1px solid var(--border-lighter);
+	border-radius: 24px;
+	text-align: center;
+	transition: all 0.4s;
+}
+
+.value-card:hover {
+	transform: translateY(-10px);
+	border-color: rgba(37, 99, 235, 0.3);
+	box-shadow: var(--shadow-xl);
+	background: white;
+}
+
+.value-icon {
+	width: 80px;
+	height: 80px;
+	background: var(--gradient-primary);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 24px;
+	box-shadow: var(--shadow-blue);
+}
+
+.value-icon svg {
+	width: 36px;
+	height: 36px;
+	color: white;
+}
+
+.value-card h3 {
+	font-size: 22px;
+	color: var(--text-primary);
+	margin-bottom: 12px;
+}
+
+.value-card p {
+	color: var(--text-secondary);
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.cta {
+	position: relative;
+	padding: 120px 0;
+	overflow: hidden;
+}
+
+.cta-bg {
+	position: absolute;
+	inset: 0;
+}
+
+.cta-gradient {
+	position: absolute;
+	inset: 0;
+	background: var(--gradient-primary);
+}
+
+.cta-content {
+	position: relative;
+	text-align: center;
+	z-index: 1;
+}
+
+.cta-content h2 {
+	font-size: clamp(32px, 4vw, 48px);
+	color: white;
+	margin-bottom: 20px;
+}
+
+.cta-content p {
+	font-size: 18px;
+	color: rgba(255, 255, 255, 0.9);
+	margin-bottom: 40px;
+}
+
+.cta-actions {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+@media (max-width: 1024px) {
+	.mission-content {
+		grid-template-columns: 1fr;
+	}
+
+	.values-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.about-highlights {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.timeline::before {
+		left: 20px;
+	}
+
+	.timeline-item {
+		flex-direction: column;
+		gap: 10px;
+		padding-left: 50px;
+	}
+
+	.timeline-item::before {
+		left: 12px;
+	}
+
+	.timeline-year {
+		width: auto;
+	}
+
+	.values-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.cta-actions {
+		flex-direction: column;
+	}
+}
+</style>
