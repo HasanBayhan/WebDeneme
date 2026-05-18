@@ -25,11 +25,16 @@ const applications = [
 ];
 ---
 
-<Layout title="Ana Sayfa">
-	<Navbar />
+<Layout 
+  title="Ana Sayfa" 
+  description="EC POWER - Lazer epilasyon cihazları için profesyonel power supply üreticisi. 15 yılı aşkın deneyim, 30+ ülke ihracat, CE/UL/TÜV sertifikalı yüksek performanslı güç kaynakları."
+  breadcrumbs={[{ name: 'Ana Sayfa', url: 'https://ecpower.com.tr/' }]}
+>
+  <a href="#main-content" class="skip-link">Ana içeriğe geç</a>
+  <Navbar />
 
-	<main>
-		<section class="hero">
+  <main id="main-content">
+		<section class="hero" aria-label="Ana bölüm">
 			<div class="hero-bg">
 				<div class="hero-gradient"></div>
 				<div class="hero-grid"></div>

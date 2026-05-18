@@ -46,10 +46,24 @@ const faqs = [
 ];
 ---
 
-<Layout title="İletişim" description="EC POWER ile iletişime geçin - Teklif alın, sorularınızı sorun">
-	<Navbar />
+<Layout 
+  title="İletişim" 
+  description="EC POWER ile iletişime geçin. Lazer epilasyon power supply çözümleri için teklif alın. İstanbul İkitelli OSB'de 7/24 teknik destek."
+  breadcrumbs={[
+    { name: 'Ana Sayfa', url: 'https://ecpower.com.tr/' },
+    { name: 'İletişim', url: 'https://ecpower.com.tr/contact' }
+  ]}
+  faqs={[
+    { q: 'EC POWER ürünleri için garanti süresi nedir?', a: 'Tüm EC POWER ürünleri 2-3 yıl arası garanti süresi ile sunulmaktadır. Detaylı bilgi için ürün sayfalarını inceleyebilirsiniz.' },
+    { q: 'Özel voltaj değerlerinde üretim yapıyor musunuz?', a: 'Evet, standart dışı voltaj ve akım gereksinimleriniz için özel tasarım çözümleri sunuyoruz. İletişime geçerek ihtiyaçlarınızı paylaşabilirsiniz.' },
+    { q: 'Uluslararası gönderim yapıyor musunuz?', a: "Evet, 30'dan fazla ülkeye gönderim yapıyoruz. Kargo maliyetleri ve teslimat süreleri hakkında bilgi almak için satış ekibimizle iletişime geçin." },
+    { q: 'Teknik destek hizmetleriniz nelerdir?', a: '7/24 teknik destek hizmeti sunuyoruz. Kurulum, devreye alma ve arıza durumlarında uzman ekibimiz yanınızda.' },
+  ]}
+>
+  <a href="#main-content" class="skip-link">Ana içeriğe geç</a>
+  <Navbar />
 
-	<main>
+  <main id="main-content">
 		<section class="page-hero">
 			<div class="container">
 				<span class="section-tag">İletişim</span>

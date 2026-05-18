@@ -63,10 +63,18 @@ const comparisonSpecs = [
 ];
 ---
 
-<Layout title="Ürünler" description="EC POWER lazer epilasyon power supply ürün gamı">
-	<Navbar />
+<Layout 
+  title="Ürünler" 
+  description="EC POWER lazer epilasyon power supply ürün gamı - EC-500, EC-800, EC-1200, EC-2000 serisi. 500W-2000W güç aralığı, %94-96 verimlilik, CE/UL/RoHS/TÜV sertifikaları."
+  breadcrumbs={[
+    { name: 'Ana Sayfa', url: 'https://ecpower.com.tr/' },
+    { name: 'Ürünler', url: 'https://ecpower.com.tr/products' }
+  ]}
+>
+  <a href="#main-content" class="skip-link">Ana içeriğe geç</a>
+  <Navbar />
 
-	<main>
+  <main id="main-content">
 		<section class="page-hero">
 			<div class="container">
 				<span class="section-tag">Ürün Gamımız</span>

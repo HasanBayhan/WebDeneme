@@ -9,9 +9,9 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="header">
+<header class="header" role="banner">
 	<div class="header-glass"></div>
-	<nav class="navbar">
+	<nav class="navbar" role="navigation" aria-label="Ana navigasyon">
 		<div class="container nav-content">
 			<a href="/" class="logo">
 				<div class="logo-icon">
@@ -55,7 +55,7 @@ const currentPath = Astro.url.pathname;
 				</a>
 			</div>
 
-			<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+			<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="mobileMenu">
 				<span></span>
 				<span></span>
 				<span></span>
@@ -63,7 +63,7 @@ const currentPath = Astro.url.pathname;
 		</div>
 	</nav>
 
-	<div class="mobile-menu" id="mobileMenu">
+	<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobil navigasyon menüsü">
 		<div class="container mobile-menu-content">
 			{navLinks.map(link => (
 				<a href={link.href} class:list={['mobile-link', { active: currentPath === link.href }]}>
@@ -261,7 +261,9 @@ const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
 mobileMenuBtn?.addEventListener('click', () => {
-	mobileMenu?.classList.toggle('active');
-	mobileMenuBtn.classList.toggle('active');
+  const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+  mobileMenu?.classList.toggle('active');
+  mobileMenuBtn.classList.toggle('active');
+  mobileMenuBtn.setAttribute('aria-expanded', String(!isExpanded));
 });
 </script>

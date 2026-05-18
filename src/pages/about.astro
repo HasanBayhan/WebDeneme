@@ -20,10 +20,20 @@ const values = [
 ];
 ---
 
-<Layout title="Hakkımızda" description="EC POWER hakkında - 15 yılı aşkın deneyim">
-	<Navbar />
+<Layout 
+  title="Hakkımızda" 
+  description="EC POWER hakkında - 15 yılı aşkın deneyim ile lazer epilasyon power supply üreticisi. ISO 9001 ve TÜV sertifikalı kalite, 30+ ülke ihracat."
+  type="article"
+  publishedTime="2024-01-01"
+  breadcrumbs={[
+    { name: 'Ana Sayfa', url: 'https://ecpower.com.tr/' },
+    { name: 'Hakkımızda', url: 'https://ecpower.com.tr/about' }
+  ]}
+>
+  <a href="#main-content" class="skip-link">Ana içeriğe geç</a>
+  <Navbar />
 
-	<main>
+  <main id="main-content">
 		<section class="page-hero">
 			<div class="container">
 				<span class="section-tag">Hakkımızda</span>
