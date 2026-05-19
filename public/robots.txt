@@ -1,37 +1,86 @@
-# https://www.robotstxt.org/robotstxt.html
+# EC POWER - robots.txt
+# https://ecpower.com.tr
+# Son güncelleme: 2026-05-19
+
 User-agent: *
 Allow: /
 
-# Disallow admin or private areas
+# Private / utility paths
 Disallow: /admin/
 Disallow: /api/
+Disallow: /private/
 Disallow: /*.json$
+Disallow: /*?*utm_*
+Disallow: /*?*ref=*
 
-# Sitemap location
+# Sitemap konumu
 Sitemap: https://ecpower.com.tr/sitemap-index.xml
 
-# Crawl-delay for polite crawling
-Crawl-delay: 10
+# ---- Bot-özel kurallar ----
 
-# Host directive
-Host: https://ecpower.com.tr
-
-# Specific bot rules
+# Google
 User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Googlebot-Image
 Allow: /
 Crawl-delay: 5
 
+# Bing
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 10
+Crawl-delay: 5
 
+# Yandex
 User-agent: YandexBot
 Allow: /
 Crawl-delay: 10
 
-# Block bad bots
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 5
+
+# Facebook / Meta
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 5
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Applebot
+User-agent: Applebot
+Allow: /
+Crawl-delay: 5
+
+# SEO araçları (analiz amaçlı - izin ver)
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
+Crawl-delay: 20
 
 User-agent: SemrushBot
+Allow: /
+Crawl-delay: 20
+
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 20
+
+User-agent: DotBot
+Disallow: /
+
+# ---- Kötü botlar ----
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: python-requests
 Disallow: /

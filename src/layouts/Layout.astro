@@ -6,10 +6,12 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
   type?: 'website' | 'article' | 'product';
   publishedTime?: string;
   modifiedTime?: string;
   canonical?: string;
+  keywords?: string;
   breadcrumbs?: { name: string; url: string }[];
   productData?: {
     name: string;
@@ -32,12 +34,14 @@ interface Props {
 
 const {
   title,
-  description = "EC POWER - Lazer Epilasyon Cihazları için Profesyonel Power Supply Üreticisi",
+  description = "EC POWER - Lazer Epilasyon Cihazları için Profesyonel Power Supply Üreticisi. CE/UL/TÜV Sertifikalı.",
   image,
+  imageAlt,
   type = 'website',
   publishedTime,
   modifiedTime,
   canonical,
+  keywords,
   breadcrumbs,
   productData,
   faqs,
@@ -52,20 +56,23 @@ const {
       title={title}
       description={description}
       image={image}
+      imageAlt={imageAlt}
       type={type}
       publishedTime={publishedTime}
       modifiedTime={modifiedTime}
       canonical={canonical}
+      keywords={keywords}
       breadcrumbs={breadcrumbs}
       productData={productData}
       faqs={faqs}
       noindex={noindex}
     />
-    
+
     {(type === 'article' || Astro.url.pathname === '/about') && (
       <Fragment set:html={`<script type="application/ld+json">${generateArticleSchemaForAbout()}</script>`} />
     )}
 
+    <!-- Google Fonts: non-render-blocking preload -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" />

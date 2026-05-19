@@ -1,0 +1,16 @@
+/* TEAM */
+Company: EC POWER Güç Sistemleri
+Site: https://ecpower.com.tr
+Email: info@ecpower.com.tr
+Location: İstanbul, Türkiye
+
+/* THANKS */
+Technology: Astro Framework
+Fonts: Google Fonts (Inter, Space Grotesk)
+Hosting: Türkiye
+
+/* SITE */
+Last update: 2026-05-19
+Language: Turkish (tr-TR)
+Standards: HTML5, CSS3, JSON-LD, Schema.org
+Components: Astro v6, Vite
